@@ -1,6 +1,10 @@
 
 Application to anonymize DICOM files. It can be used as a standalone application or library
 
+# How to use
+
+You should use it: java -jar jDICOMAnonymizer-jar-with-dependencies.jar input.dcm output.dcm
+
 
 # Dependences 
 
