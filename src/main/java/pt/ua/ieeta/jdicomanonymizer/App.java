@@ -17,20 +17,33 @@
 
 package pt.ua.ieeta.jdicomanonymizer;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * Main program
- * @author: Luís A. Bastião Silva
+ * @author: Luís A. Bastião Silva <bastiao@ua.pt>
  */
 public class App 
 {
     public static void main( String[] args )
     {
-        
-        
+        if (args.length!= 2)
+        {
+            System.err.println("You should use it: java -jar jDICOMAnonymizer-jar-with-dependencies.jar input.dcm output.dcm");
+            return;
+        }
         String input = args[0];
         String output = args[1];
-        
-        
+        Anonymize an = new Anonymize();
+        try 
+        {
+            an.anonymize(new File(input), new File(output));
+        } catch (IOException ex) {
+            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 }
