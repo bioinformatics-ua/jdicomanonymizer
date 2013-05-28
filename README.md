@@ -1,22 +1,25 @@
-
 Application to anonymize DICOM files. It can be used as a standalone application or library
 
-# How to use
+## How to use
 
 You should use it: java -jar jDICOMAnonymizer-jar-with-dependencies.jar input.dcm output.dcm
 
+## Download compiled version
 
-# Dependences 
+Download: https://dl.dropboxusercontent.com/u/2859837/jDICOMAnonymizer-jar-with-dependencies.jar
+
+
+## Dependences 
 
 Java
 
 
-# Java dependences
+## Java dependences
 
 dcm4che
 
 
-# License
+## License
 
     jDICOMAnonymizer
     Copyright (C) 2013 - Luís A. Bastião Silva and Universidade de Aveiro
@@ -36,6 +39,6 @@ dcm4che
 
 
 
-# About the author
+## About the author
 
 Check www.bastiao.org
