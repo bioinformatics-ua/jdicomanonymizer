@@ -37,13 +37,46 @@ public class App
         }
         String input = args[0];
         String output = args[1];
-        Anonymize an = new Anonymize();
-        try 
+        
+        File in = new File(input);
+        if (in.isDirectory())
         {
-            an.anonymize(new File(input), new File(output));
-        } catch (IOException ex) {
-            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+            anonymizeDirectories(new File(input), new File(output));
+        }
+        else
+        {
+            Anonymize an = new Anonymize();
+            try 
+            {
+                an.anonymize(new File(input), new File(output));
+            } catch (IOException ex) {
+                Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
     }
+    
+    
+    public static void anonymizeDirectories(File input, File output)
+    {
+        Anonymize an = new Anonymize();
+        File [] dicomFiles = input.listFiles();
+        for (File f : dicomFiles)
+        {
+            try 
+            {
+                
+                File out = new File(output, f.getName());
+                System.out.println(f.getAbsolutePath());
+                System.out.println(out.getAbsolutePath());
+                an.anonymize(f, out);
+            } 
+            catch (IOException ex) 
+            {
+                Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }
+    
 }
